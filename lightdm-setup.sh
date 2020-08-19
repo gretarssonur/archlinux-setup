@@ -13,6 +13,12 @@ fi
 DIR=`dirname $0`
 packages=""
 
+pacman -Qi xorg-server &> /dev/null
+if [ $? -ne 0 ]; then
+	echo "Adding xorg to downloads"
+	packages="$packages xorg"
+fi
+
 pacman -Qi lightdm &> /dev/null
 if [ $? -ne 0 ]; then
 	echo "Adding lightdm to downloads"
