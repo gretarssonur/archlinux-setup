@@ -13,11 +13,9 @@ fi
 
 DIR="`dirname $0`"
 
-pacman -Qi arc-gtk-theme &> /dev/null
-if [ $? -ne 0 ]; then
-	yay -S arc-gtk-theme
-fi
-gsettings set org.mate.interface gtk-theme Arc
+mkdir -p ~/.themes
+cp $DIR/Gnome-Dark ~/.themes -rf
+gsettings set org.mate.interface gtk-theme Gnome-Dark
 
 pacman -Qi brisk-menu &> /dev/null
 if [ $? -ne 0 ]; then
